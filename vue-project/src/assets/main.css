@@ -1,35 +1,3 @@
-:root {
-  --accent: hsl(160, 84%, 39%);
-}
-
-/* Dark theme (default) */
-[data-theme='dark'] {
-  --bg: #0f1115;
-  --text: #f5f7fa;
-  --text-muted: #a0a7b4;
-  --card-bg: #171a21;
-  --card-border: #262b34;
-  --card-shadow: rgba(0, 0, 0, 0.45);
-  --btn-bg: #1f242d;
-  --btn-bg-hover: #272d38;
-  --btn-border: #2f3541;
-  --avatar-bg: #272d38;
-}
-
-/* Light theme */
-[data-theme='light'] {
-  --bg: #f2f4f8;
-  --text: #1a1d23;
-  --text-muted: #5c6470;
-  --card-bg: #ffffff;
-  --card-border: #e2e6ee;
-  --card-shadow: rgba(20, 30, 60, 0.12);
-  --btn-bg: #f7f9fc;
-  --btn-bg-hover: #eef1f7;
-  --btn-border: #dde2ec;
-  --avatar-bg: #eef1f7;
-}
-
 *,
 *::before,
 *::after {
@@ -40,19 +8,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
 }
 
 #app {

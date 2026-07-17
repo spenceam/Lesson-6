@@ -11,8 +11,8 @@ export const profile = {
 }
 
 export const links: LinkItem[] = [
-  { label: 'Portfolio', href: 'https://example.com', icon: '🌐' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com', icon: '💼' },
-  { label: 'Instagram', href: 'https://www.instagram.com', icon: '📸' },
-  { label: 'Email', href: 'mailto:hello@example.com', icon: '✉️' },
+  { label: 'Portfolio', href: 'https://example.com', icon: 'mdi-web' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com', icon: 'mdi-linkedin' },
+  { label: 'Instagram', href: 'https://www.instagram.com', icon: 'mdi-instagram' },
+  { label: 'Email', href: 'mailto:hello@example.com', icon: 'mdi-email' },
 ]

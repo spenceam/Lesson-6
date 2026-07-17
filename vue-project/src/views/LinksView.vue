@@ -1,45 +1,65 @@
 <script setup lang="ts">
-import { useTheme } from '@/composables/useTheme'
+import { useTheme } from 'vuetify'
 import { profile, links } from '@/data/links'
 import profilePhoto from '@/assets/photos/amanda_spence.png'
 
-const { theme, toggleTheme } = useTheme()
+const theme = useTheme()
+
+function toggleTheme() {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 </script>
 
 <template>
-  <main class="links-page">
-    <section class="card">
-      <button
-        class="theme-toggle"
-        type="button"
-        :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-        @click="toggleTheme"
-      >
-        {{ theme === 'dark' ? '☀️' : '🌙' }}
-      </button>
+  <v-app>
+    <v-main>
+      <v-container class="py-12">
+        <v-row justify="center">
+          <v-col cols="12" sm="8" md="6" lg="4">
+            <v-card class="pa-6 text-center" rounded="xl" elevation="8">
+              <div class="d-flex justify-end">
+                <v-btn
+                  icon
+                  variant="text"
+                  :aria-label="
+                    theme.global.current.value.dark
+                      ? 'Switch to light mode'
+                      : 'Switch to dark mode'
+                  "
+                  @click="toggleTheme"
+                >
+                  <v-icon>
+                    {{ theme.global.current.value.dark ? 'mdi-weather-sunny' : 'mdi-weather-night' }}
+                  </v-icon>
+                </v-btn>
+              </div>
 
-      <div class="avatar">
-        <img class="avatar-img" :src="profilePhoto" :alt="profile.photoAlt" />
-      </div>
+              <v-avatar size="120" color="primary" class="mb-4">
+                <v-img :src="profilePhoto" :alt="profile.photoAlt" cover />
+              </v-avatar>
 
-      <h1 class="name">{{ profile.name }}</h1>
-      <p class="tagline">{{ profile.tagline }}</p>
+              <h1 class="text-h5 font-weight-bold">{{ profile.name }}</h1>
+              <p class="text-body-2 text-medium-emphasis mb-6">{{ profile.tagline }}</p>
 
-      <nav class="links">
-        <a
-          v-for="link in links"
-          :key="link.label"
-          class="link-button"
-          :href="link.href"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-icon" aria-hidden="true">{{ link.icon }}</span>
-          <span>{{ link.label }}</span>
-        </a>
-      </nav>
-    </section>
-  </main>
+              <div class="d-flex flex-column ga-3">
+                <v-btn
+                  v-for="link in links"
+                  :key="link.label"
+                  :href="link.href"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="tonal"
+                  size="large"
+                  block
+                  :prepend-icon="link.icon"
+                >
+                  {{ link.label }}
+                </v-btn>
+              </div>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
-
-<style src="@/assets/links.css" scoped></style>
