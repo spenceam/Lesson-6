@@ -51,6 +51,20 @@ function toggleTheme() {
                   :icon="link.icon"
                 />
               </div>
+
+              <p class="text-caption text-medium-emphasis mt-6 mb-0">
+                created with
+                <a
+                  href="https://www.bluebottlecoffee.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="A fun local coffee shop"
+                  class="text-decoration-none"
+                >
+                  <v-icon icon="mdi-coffee" size="small" color="brown" />
+                </a>
+                + CoPilot.
+              </p>
             </v-card>
           </v-col>
         </v-row>
