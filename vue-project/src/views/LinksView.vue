@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTheme } from 'vuetify'
 import { profile, links } from '@/data/links'
+import LinkButton from '@/components/LinkButton.vue'
 import profilePhoto from '@/assets/photos/amanda_spence.png'
 
 const theme = useTheme()
@@ -42,19 +43,13 @@ function toggleTheme() {
               <p class="text-body-2 text-medium-emphasis mb-6">{{ profile.tagline }}</p>
 
               <div class="d-flex flex-column ga-3">
-                <v-btn
+                <LinkButton
                   v-for="link in links"
                   :key="link.label"
-                  :href="link.href"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="tonal"
-                  size="large"
-                  block
-                  :prepend-icon="link.icon"
-                >
-                  {{ link.label }}
-                </v-btn>
+                  :label="link.label"
+                  :url="link.href"
+                  :icon="link.icon"
+                />
               </div>
             </v-card>
           </v-col>
