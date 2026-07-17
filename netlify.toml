@@ -1,0 +1,16 @@
+# Netlify configuration
+# The Vue app lives in the vue-project/ subfolder, so tell Netlify where to build.
+[build]
+  base = "vue-project"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8 / vue-tsc require a modern Node runtime
+  NODE_VERSION = "22"
+
+# SPA fallback so client-side (history mode) routes work on refresh/direct load
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
